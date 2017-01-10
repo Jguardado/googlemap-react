@@ -15,18 +15,16 @@ class GoogleMapComponent extends Component {
       zoom: 8
     }
 
-    map = new google.maps.Map(document.getElementById(mapID), mapOptions);
-    directionsDisplay = new google.maps.DirectionsRenderer();
-    directionsService = new google.maps.DirectionsService();
-    infoWindow = new google.maps.InfoWindow({map: map});
+    map = new window.google.maps.Map(document.getElementById(mapID), mapOptions);
+    directionsDisplay = new window.google.maps.DirectionsRenderer();
+    directionsService = new window.google.maps.DirectionsService();
+    infoWindow = new window.google.maps.InfoWindow({map: map});
 
-    const date = Date();
     const travelMode = this.props.travelMode || 'DRIVING';
 
     const request = {
        origin: this.props.origin,
        destination: this.props.destination,
-       date: date,
        travelMode: travelMode,
        transitOptions: {
         arrivalTime: this.props.arrivalTime,
@@ -43,7 +41,7 @@ class GoogleMapComponent extends Component {
     directionsDisplay.setMap(map);
 
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
+      navigator.geolocation.getCurrentPosition(position => {
         const pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude

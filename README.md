@@ -10,10 +10,10 @@ To use as an import in you application include the below code:
 ```javascript
 import GoogleMap from 'googlemap-react';
 ```
-To get acces to the Google Maps API you must create your API KEY, you can do this at https://developers.google.com/maps/documentation/javascript/get-api-key, once you have received you key insert into the script tag below and add to you html file:
+To get access to the Google Maps API you must create your API KEY, you can do this at https://developers.google.com/maps/documentation/javascript/get-api-key, once you have received you key insert into the script tag below and add to the head of your html file:
 ```html
 <!-- dont forget to add this in your html -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOURE_API_KEY"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=YOURE_API_KEY"></script>
 ```
 
 parameters/props that get passed into the `<GoogleMap />` component attributes are inherited by the request object and used in the request to the google maps API these are mock entries below. they should give you a hint about the input types expected by the API
